@@ -60,21 +60,10 @@ module plate(
                     translate([keyPosition.x + 0.5, (keyPosition.y + 0.5) * keyHeight] * 1U)
 
                     if(keyPosition.z == "adns" || keyPosition.z == "pmw")
-                        circle(r = getTrackballHoleRadius());
+                        circle(r = ENCODER_RADIUS);
                     else
                         translate(-[SWITCH_WIDTH, SWITCH_WIDTH] * 0.5)
                             square([SWITCH_WIDTH,SWITCH_WIDTH]);                        
-
-                for(keyPosition = keyPositions){
-                    translate([keyPosition.x + 0.5, (keyPosition.y + 0.5) * keyHeight] * 1U){
-                        if(keyPosition.z == "adns" || keyPosition.z == "pmw"){
-                            translate([0, SENSOR_PCB_MOUNT_OFFSET, 0])
-                                boltHole();
-                            translate([0, -SENSOR_PCB_MOUNT_OFFSET, 0])
-                                boltHole();
-                        }
-                    }
-                }
 
                 for(boltPosition = boltPositions)
                     translate([boltPosition.x, boltPosition.y * keyHeight] * 1U)

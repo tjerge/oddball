@@ -112,12 +112,13 @@ FEET_HEIGHT = 1;
 // layouts in 1U space
 
 FINGER_GRID = 
-    [[0, 2], [1, 2], [2, 2.25], [3, 2.37], [4, 2.25], [5, 2.12],
+    [[0, 3], [1, 3], [2, 3.25], [3, 3.37], [4, 3.25], [5, 3.12], // add 4th row
+     [0, 2], [1, 2], [2, 2.25], [3, 2.37], [4, 2.25], [5, 2.12],
      [0, 1], [1, 1], [2, 1.25], [3, 1.37], [4, 1.25], [5, 1.12],
      [0, 0], [1, 0], [2, 0.25], [3, 0.37], [4, 0.25], [5, 0.12]];
 
 FINGER_BOLT_HOLES =
-    [[1, 2], [5, 2.185],
+    [[1, 3], [5, 3.185],
      [1, 1], [5, 1.185]];
 
 THUMB_GRID = [[0, 0], [1, 0.1]];
@@ -127,17 +128,20 @@ THUMB_BOLT_HOLES =
      [1.05, 0.175]];
 
 // single right thumb key
-THUMB_TRACKBALL_GRID = [[0, 0], [1.43, 0, "pmw" /* "adns" */ ]];
+//THUMB_TRACKBALL_GRID = [[0, 0], [1.43, 0, "pmw" /* "adns" */ ]];
 
-// dual right thumb key
-// THUMB_TRACKBALL_GRID = [
-//     [-1, -0.1],
-//     [0, 0], 
-//     [1.43, 0, "pmw" /* "adns" */ ]];
+ //dual right thumb key
+ THUMB_TRACKBALL_GRID = [
+     [-1, -0.1],
+     [0, 0], 
+     [1.43, 0, "pmw" /* "adns" */ ]];
 
 THUMB_TRACKBALL_BOLT_HOLES = 
     [[0.95, 0.925],
      [0.95, 0.075]];
+     
+// encoder radius
+ENCODER_RADIUS = 6;
 
 FEET_POSITIONS =
     [[0.3, 2.75], [5.6, 2.85],

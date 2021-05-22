@@ -1,5 +1,5 @@
 include <../config.scad>;
-use <../modules/plate.scad>;
+use <../modules/encoderPlate.scad>;
 use <../modules/keys.scad>;
 
 mirror([1,0,0]){

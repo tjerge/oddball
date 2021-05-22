@@ -34,11 +34,11 @@ module rightCase(){
                 boltLength = THUMB_BOLT_LENGTH)],
             usbCutoutPosition = [
                 PLATE_BEZEL + 3.5 * 1U, 
-                66,
-                PCB_UNDERSIDE_CLEARANCE - MCU_PCB_OFFSET - MCU_USB_OFFSET - USB_C_SIZE.z / 2],
+                78,
+                PCB_UNDERSIDE_CLEARANCE - max(MCU_PCB_OFFSET + MCU_PCB_THICKNESS - MCU_USB_OFFSET, USB_C_SIZE.z) + USB_C_SIZE.z / 2],
             trrsCutoutPosition = [
                 PLATE_BEZEL + 5 * 1U - 1.5, 
-                60,
+                78,
                 PCB_UNDERSIDE_CLEARANCE - 3.5 / 2 - 0.5],
             feetPositions = THUMB_FEET_POSITIONS);
 }

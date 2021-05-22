@@ -1,43 +1,45 @@
 include <../config.scad>;
 use <./case.scad>;
 
-module leftCase(){
-    case([
-        caseSection(
-            keyPositions = FINGER_GRID,
-            keyHeight = 1.0,
-            rotation = HAND_ROTATION,
-            boltPositions = FINGER_BOLT_HOLES,
-            plateHull = false,
-            caseBottomThickness = CASE_BOTTOM_THICKNESS,
-            plateUndersideClearance =
-                PCB_PLATE_OFFSET_Z + 
-                PCB_UNDERSIDE_CLEARANCE + 
-                PCB_THICKNESS,
-            boltLength = BOLT_LENGTH,
-            flangeStandoffs = true),
-        caseSection(
-            keyPositions = THUMB_GRID,
-            keyHeight = 1.25,
-            offset = THUMB_OFFSET,
-            rotation = THUMB_ROTATION,
-            boltPositions = THUMB_BOLT_HOLES,
-            plateHull = false,
-            caseBottomThickness = CASE_BOTTOM_THICKNESS,
-            plateUndersideClearance =
-                PCB_PLATE_OFFSET_Z + 
-                PCB_UNDERSIDE_CLEARANCE + 
-                PCB_THICKNESS,
-            boltLength = BOLT_LENGTH)],
-        usbCutoutPosition = [
-            PLATE_BEZEL + 3.5 * 1U, 
-            66, 
-            PCB_UNDERSIDE_CLEARANCE - max(MCU_PCB_OFFSET + MCU_PCB_THICKNESS - MCU_USB_OFFSET, USB_C_SIZE.z) + USB_C_SIZE.z / 2],
-        trrsCutoutPosition = [
-            PLATE_BEZEL + 5 * 1U + 0.5, 
-            60, 
-            PCB_UNDERSIDE_CLEARANCE - 3.5 / 2 - 0.5],
-        feetPositions = FEET_POSITIONS);
+module rightCase(){
+        case([
+            caseSection(
+                keyPositions = FINGER_GRID,
+                keyHeight = 1.0,
+                rotation = HAND_ROTATION,
+                boltPositions = FINGER_BOLT_HOLES,
+                plateHull = false,
+                caseBottomThickness = CASE_BOTTOM_THICKNESS,
+                plateUndersideClearance =
+                    PCB_PLATE_OFFSET_Z + 
+                    PCB_UNDERSIDE_CLEARANCE + 
+                    PCB_THICKNESS,
+                boltLength = BOLT_LENGTH,
+                flangeStandoffs = true),
+            caseSection(
+                keyPositions = THUMB_TRACKBALL_GRID,
+                keyHeight = 1.25,
+                offset = THUMB_OFFSET,
+                rotation = THUMB_ROTATION,
+                boltPositions = THUMB_TRACKBALL_BOLT_HOLES,
+                plateHull = true,
+                caseBottomThickness = 
+                    CASE_BOTTOM_THICKNESS +
+                    PCB_PLATE_OFFSET_Z + 
+                    PCB_UNDERSIDE_CLEARANCE + 
+                    PCB_THICKNESS - 
+                    SENSOR_PCB_UNDERSIDE_CLEARANCE,
+                plateUndersideClearance = SENSOR_PCB_UNDERSIDE_CLEARANCE,
+                boltLength = THUMB_BOLT_LENGTH)],
+            usbCutoutPosition = [
+                PLATE_BEZEL + 3.5 * 1U, 
+                78,
+                PCB_UNDERSIDE_CLEARANCE - max(MCU_PCB_OFFSET + MCU_PCB_THICKNESS - MCU_USB_OFFSET, USB_C_SIZE.z) + USB_C_SIZE.z / 2],
+            trrsCutoutPosition = [
+                PLATE_BEZEL + 5 * 1U - 1.5, 
+                78,
+                PCB_UNDERSIDE_CLEARANCE - 3.5 / 2 - 0.5],
+            feetPositions = THUMB_FEET_POSITIONS);
 }
 
-leftCase($fn = 20);
+rightCase($fn = 20);

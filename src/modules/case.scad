@@ -344,11 +344,11 @@ case([
         boltLength = BOLT_LENGTH)],
     usbCutoutPosition = [
         PLATE_BEZEL + 3.5 * 1U, 
-        66, 
+        78, 
         PCB_UNDERSIDE_CLEARANCE - max(MCU_PCB_OFFSET, USB_C_SIZE.z) + USB_C_SIZE.z / 2],
     trrsCutoutPosition = [
         PLATE_BEZEL + 5 * 1U + 0.5, 
-        60, 
+        78, 
         PCB_UNDERSIDE_CLEARANCE - 3.5 / 2 - 0.5],
     feetPositions = FEET_POSITIONS,
     $fn = 20);
